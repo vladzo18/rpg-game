@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d86c01d893244d4bb2afbd147f2fa7f, type: 3}
+  m_Name: SpecializationConfigsStorage
+  m_EditorClassIdentifier: 
+  _specializationConfigs:
+  - _specializationType: 1
+    _specializationName: Warrior
+    _specializationIcon: {fileID: 21300000, guid: 917871e5c6d34ed4b93dfafad1277db5, type: 3}
+    _specializationDescription: Warrior character's skills are centered around strength
+      and physical combat with a wide variety of melee weapons, and the ability to
+      survive while tanking for the group, usually at the cost of agility or range.
+      In video games, a warrior often has a lot of health but have a small range.
+    _startStats:
+    - _statType: 1
+      _amount: 3
+    - _statType: 2
+      _amount: 1
+    _startSkills:
+    - _skillType: 1
+      _skillName: Bash
+      _skillDescription: This is Bash
+      _skillSprite: {fileID: 21300000, guid: c890dd06d4a350946ab11e4778bf47d8, type: 3}
+    - _skillType: 2
+      _skillName: Shield Block
+      _skillDescription: This is Shield Block
+      _skillSprite: {fileID: 21300000, guid: 8a96b38c76be79946a150249547b07bc, type: 3}
+  - _specializationType: 2
+    _specializationName: Assassin
+    _specializationIcon: {fileID: 21300000, guid: 530bcabb1501d8148a19a77465ecac03, type: 3}
+    _specializationDescription: Assassin is a live-action game in which players try
+      to eliminate one another using mock weapons, in an effort to become the last
+      surviving player.
+    _startStats:
+    - _statType: 1
+      _amount: 1
+    - _statType: 2
+      _amount: 3
+    - _statType: 3
+      _amount: 2
+    _startSkills:
+    - _skillType: 3
+      _skillName: Shadow Strike
+      _skillDescription: This is Shadow Strike
+      _skillSprite: {fileID: 21300000, guid: 0ad2337320c1b5841ba3ceb24de6e91a, type: 3}
+    - _skillType: 4
+      _skillName: Poisonous Strike
+      _skillDescription: This is Poisonous Strike
+      _skillSprite: {fileID: 21300000, guid: 63b30c77b2de31d4398b65d935f4713c, type: 3}
+    - _skillType: 5
+      _skillName: Rapid Strike
+      _skillDescription: This is Rapid Strike
+      _skillSprite: {fileID: 21300000, guid: 03e6f50b7a998ed46a4c3f9f8cb0855e, type: 3}
