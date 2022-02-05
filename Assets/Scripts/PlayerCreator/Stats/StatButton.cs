@@ -22,9 +22,13 @@ namespace PlayerCreator.Stats {
                 _image.color = Color.white;
             }
         }
+
+        public void Dispose() {
+            _button.onClick.RemoveListener(ButtonClicked);
+        }
         
         private void OnDestroy() {
-            _button.onClick.RemoveListener(ButtonClicked);
+            Dispose();
         }
         
         private void ButtonClicked() {

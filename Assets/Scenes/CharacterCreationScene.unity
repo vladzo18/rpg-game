@@ -242,7 +242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Free stats:'
+  m_text: 'Stats left:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -555,8 +555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -61.883}
-  m_SizeDelta: {x: 0, y: 123.77}
+  m_AnchoredPosition: {x: 0.0026245117, y: -61.880005}
+  m_SizeDelta: {x: -0.0047607, y: 123.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419871533
 MonoBehaviour:
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player Apperance
+  m_text: Apperence
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -605,15 +605,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.7
-  m_fontSizeBase: 59.7
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1349,7 +1349,7 @@ GameObject:
   - component: {fileID: 925813782}
   - component: {fileID: 925813781}
   m_Layer: 5
-  m_Name: ToPlayerCharacteristicsButton
+  m_Name: PlayerCharacteristicsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1470,7 +1470,7 @@ GameObject:
   - component: {fileID: 977394776}
   - component: {fileID: 977394775}
   m_Layer: 5
-  m_Name: ToPlayerSpecializationButton
+  m_Name: PlayerSpecializationButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1792453, g: 0.1767088, b: 0.1767088, a: 0.25490198}
+  m_Color: {r: 0.09803922, g: 0.3764706, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1792453, g: 0.1767088, b: 0.1767088, a: 0.33333334}
+  m_Color: {r: 0.09803922, g: 0.3764706, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2109,8 +2109,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1792453, g: 0.1767088, b: 0.1767088, a: 0.21176471}
+  m_Color: {r: 0.09803922, g: 0.3764706, b: 0.5019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2473,8 +2473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 322, y: -0.000019073}
-  m_SizeDelta: {x: 1014.624, y: 1014.624}
+  m_AnchoredPosition: {x: 296, y: 0.0000038147}
+  m_SizeDelta: {x: 884.681, y: 884.682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349693752
 MonoBehaviour:
@@ -2565,12 +2565,12 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 20
   m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!1 &1472099947
@@ -2805,7 +2805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530453058}
   m_Layer: 5
-  m_Name: PlayerChangeWindows
+  m_Name: PlayerWindows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3099,6 +3099,7 @@ GameObject:
   - component: {fileID: 1787795897}
   - component: {fileID: 1787795898}
   - component: {fileID: 1787795899}
+  - component: {fileID: 1787795900}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3162,9 +3163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statsView: {fileID: 1854429814}
+  _specializationChanger: {fileID: 1787795897}
   _specializationConfigsStorage: {fileID: 11400000, guid: 5cd1d92def924454a9045faed1ea282a, type: 2}
   _freeStats: 10
-  _specializationChanger: {fileID: 1787795897}
 --- !u!114 &1787795899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,10 +3178,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753790b7cb964266b185ac482ddedad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerView: {fileID: 2131519355}
+  _apperenceWindowHeader: Apperence
+  _specializationHeader: Specialization
+  _characteristicsHeader: Characteristics
+--- !u!114 &1787795900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787795894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f105369572a42ba8c487856d98c9c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _playerView: {fileID: 2131519355}
-  _playerApperenceWindowsName: Player Apperence
-  _playerPlayerSpecializationName: Player Specialization
-  _playerPlayerCharacteristicsName: Player Characteristics
+  _playerApperenceChanger: {fileID: 1787795895}
+  _statsChanger: {fileID: 1787795898}
 --- !u!1 &1801279288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6273726986178413471, guid: 032279ed26cb948168c0341cb717bd22, type: 3}
@@ -3379,7 +3395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _freeStatsText: {fileID: 197554332}
   _statViewsContainerTransform: {fileID: 239035582}
-  _statsViewPrefab: {fileID: 5165490201342417795, guid: 7747eba6e29032b48993080c3a1b1db3, type: 3}
+  _statsViewPrefab: {fileID: 1634413803251737292, guid: 7747eba6e29032b48993080c3a1b1db3, type: 3}
 --- !u!212 &1868488985 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6068594451996416040, guid: 032279ed26cb948168c0341cb717bd22, type: 3}
@@ -3398,7 +3414,7 @@ GameObject:
   - component: {fileID: 1946811060}
   - component: {fileID: 1946811059}
   m_Layer: 5
-  m_Name: ToPlayerApperenceButton
+  m_Name: PlayerApperenceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3579,8 +3595,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -344, y: 16.001}
-  m_SizeDelta: {x: 508.916, y: 800}
+  m_AnchoredPosition: {x: -323, y: -22.171}
+  m_SizeDelta: {x: 450.997, y: 876.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992359048
 MonoBehaviour:
@@ -3837,8 +3853,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -974, y: 16.001}
-  m_SizeDelta: {x: 600, y: 800}
+  m_AnchoredPosition: {x: -960.22, y: -22.171}
+  m_SizeDelta: {x: 657.257, y: 876.343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131519353
 MonoBehaviour:
@@ -3853,7 +3869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.12156863}
+  m_Color: {r: 0.1254902, g: 0.49411768, b: 0.6627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3891,9 +3907,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _headerText: {fileID: 419871533}
-  _playerApperenceWindow: {fileID: 749792628}
-  _playerSpecializationWindow: {fileID: 2102007231}
-  _PlayerCharacteristicsWindow: {fileID: 1854429812}
-  _toPlayerApperenceButton: {fileID: 1946811059}
-  _toPlayerSpecializationButton: {fileID: 977394775}
-  _toPlayerCharacteristicsButton: {fileID: 925813781}
+  _apperenceWindow: {fileID: 749792628}
+  _specializationWindow: {fileID: 2102007231}
+  _characteristicsWindow: {fileID: 1854429812}
+  _apperenceButton: {fileID: 1946811059}
+  _specializationButton: {fileID: 977394775}
+  _characteristicsButton: {fileID: 925813781}
+  _playButton: {fileID: 1811968455}

@@ -4,7 +4,8 @@ namespace GamePlay {
       None = 0, 
       Strength = 1, 
       Agility = 2, 
-      Inteligence = 3
+      Inteligence = 3,
+      Speed = 4
    }
    
 }
