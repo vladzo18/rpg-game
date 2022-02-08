@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753790b7cb964266b185ac482ddedad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerView: {fileID: 2131519355}
+  _playerView: {fileID: 2131519355}
   _apperenceWindowHeader: Apperence
   _specializationHeader: Specialization
   _characteristicsHeader: Characteristics

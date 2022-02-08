@@ -35,15 +35,7 @@ namespace PlayerCreator.Stats {
         }
         
         private void RefreshStats(int index) {
-            if (_statsViews.Count != 0) {
-                foreach (var statsView in _statsViews) {
-                    statsView.OnStateViewIncreaseClicked -= IncreaseStatValue;
-                    statsView.OnStateViewDecreaseClicked -= DecreaseStatValue;
-                    statsView.OnStateViewValueClicked -= ChangeStatValue;
-                    statsView.ReturnToPool();
-                }
-                _statsViews.Clear();
-            }
+            if (_statsViews.Count != 0) ClearStatsViews();
             
             List<Stat> stats = new List<Stat>();
             foreach (var stat in _specializationConfigsStorage.SpecializationConfigs[index].StartStats) {
@@ -79,6 +71,14 @@ namespace PlayerCreator.Stats {
             StatsSavingData statsSavingData = new StatsSavingData(_currentStartStatsIndex, stats);
             Serializator.SerializeData(statsSavingData, SavePath);
         }
+
+        private void ClearStatsViews() {
+            foreach (var statsView in _statsViews) {
+                DisposeStatView(statsView);
+                statsView.ReturnToPool();
+            }
+            _statsViews.Clear();
+        }
         
         private void IncreaseStatValue(StatView statView) {
             StatViewData stat = _statViewDatas.Find(data => data.StatView == statView);
@@ -97,15 +97,8 @@ namespace PlayerCreator.Stats {
         
         private void ChangeStat(StatViewData statViewData, int value) {
             int oldValue = statViewData.Stat.Amount;
-            if (_freeStats < 0 && value > statViewData.Stat.Amount) return;
-            if (value < statViewData.MinValue) { 
-                _freeStats += oldValue - statViewData.MinValue;
-                _statsView.FreeStatsText.text = $"Stats left: {_freeStats}";
-                statViewData.Stat.SetValue(statViewData.MinValue);
-                UpdateStatViews();
-                return;
-            }
-
+            if (_freeStats < 0) return;
+            
             value = Mathf.Clamp(value, statViewData.MinValue, oldValue + _freeStats);
             _freeStats += oldValue - value;
             _statsView.FreeStatsText.text = $"Stats left: {_freeStats}";
@@ -119,12 +112,16 @@ namespace PlayerCreator.Stats {
                 statViewData.StatView.UpdateView(_freeStats > 0 && value < statViewData.StatView.MaxValue, value > statViewData.MinValue, value);
             }
         }
+
+        private void DisposeStatView(StatView statsView) {
+            statsView.OnStateViewIncreaseClicked -= IncreaseStatValue;
+            statsView.OnStateViewDecreaseClicked -= DecreaseStatValue;
+            statsView.OnStateViewValueClicked -= ChangeStatValue;
+        }
         
         private void OnDestroy() {
             foreach (var statsView in _statsViews) {
-                statsView.OnStateViewIncreaseClicked -= IncreaseStatValue;
-                statsView.OnStateViewDecreaseClicked -= DecreaseStatValue;
-                statsView.OnStateViewValueClicked -= ChangeStatValue;
+                DisposeStatView(statsView);
             }
             _specializationChanger.OnSpecializationChange -= RefreshStats;
         }

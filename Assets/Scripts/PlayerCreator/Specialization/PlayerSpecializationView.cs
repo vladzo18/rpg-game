@@ -1,10 +1,11 @@
+using PlayerCreator.PlayerView;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace PlayerCreator.Specialization {
     
-    public class PlayerSpecializationView : MonoBehaviour {
+    public class PlayerSpecializationView : MonoBehaviour, IWindow {
 
         [Header("Header")]
         [SerializeField] private Image _specializationIcon;
@@ -29,6 +30,9 @@ namespace PlayerCreator.Specialization {
         public Transform SkillContainer => _skillContainer;
         public SkillView SkillView => _skillView;
 
+        public void Show() => this.gameObject.SetActive(true);
+        public void Hide() =>this.gameObject.SetActive(false);
+        
     }
     
 }
