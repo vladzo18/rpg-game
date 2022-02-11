@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PlayerCreator.PlayerView {
     
-    public class PlayerConfigurationSaver : MonoBehaviour {
+    public class PlayerViewConfigurationSaver : MonoBehaviour {
 
         [SerializeField] private PlayerView _playerView;
         [SerializeField] private PlayerApperenceChanger _playerApperenceChanger;

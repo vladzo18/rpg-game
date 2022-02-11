@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GamePlay;
 using UnityEngine;
 
 namespace PlayerCreator.Specialization {
@@ -10,6 +11,8 @@ namespace PlayerCreator.Specialization {
         
         public List<SpecializationConfig> SpecializationConfigs => _specializationConfigs;
 
+        public List<Stat> GetStartStats(int classIndex) => _specializationConfigs[0].StartStats;
+        
     }
     
 }

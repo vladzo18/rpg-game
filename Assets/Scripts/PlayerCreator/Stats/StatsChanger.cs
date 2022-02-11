@@ -30,30 +30,29 @@ namespace PlayerCreator.Stats {
             _objectPool = ObjectPool.Instance;
             
             _specializationChanger.OnSpecializationChange += RefreshStats;
-            RefreshStats(0);
-            _currentStartStatsIndex = 0;
+            RefreshStats(_currentStartStatsIndex);
         }
         
         private void RefreshStats(int index) {
             if (_statsViews.Count != 0) ClearStatsViews();
             
-            List<Stat> stats = new List<Stat>();
-            foreach (var stat in _specializationConfigsStorage.SpecializationConfigs[index].StartStats) {
-                stats.Add(new Stat(stat.StatType, stat.Amount));
+            List<Stat> startStats = new List<Stat>();
+            foreach (var stat in _specializationConfigsStorage.GetStartStats(index)) {
+                startStats.Add(new Stat(stat.StatType, stat.Amount));
             }
             
             _statViewDatas.Clear();
-            foreach (var stat in stats) {
+            foreach (var startStat in startStats) {
                 StatView statView = _objectPool.GetObject(_statsView.StatsViewPrefab);
                 statView.transform.SetParent(_statsView.StatViewsContainerTransform);
                 statView.transform.localScale = Vector3.one;
-                statView.Initialize(stat.StatType.ToString());
+                statView.Initialize(startStat.StatType.ToString());
                 statView.OnStateViewIncreaseClicked += IncreaseStatValue;
                 statView.OnStateViewDecreaseClicked += DecreaseStatValue;
                 statView.OnStateViewValueClicked += ChangeStatValue;
                 
                 _statsViews.Add(statView);
-                _statViewDatas.Add(new StatViewData(statView, stat, stat.Amount));
+                _statViewDatas.Add(new StatViewData(statView, startStat, startStat.Amount));
             }
             
             _currentStartStatsIndex = index;

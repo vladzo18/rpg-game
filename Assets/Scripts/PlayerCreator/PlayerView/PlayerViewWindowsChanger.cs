@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PlayerCreator.PlayerView {
     
-    public class PlayerWindowsChanger : MonoBehaviour {
+    public class PlayerViewWindowsChanger : MonoBehaviour {
 
         [SerializeField] private PlayerView _playerView;
         [Header("Headers text")]
