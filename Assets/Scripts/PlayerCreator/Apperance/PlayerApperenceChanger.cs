@@ -16,8 +16,8 @@ namespace PlayerCreator {
         private string SavePath => Path.Combine(Application.dataPath, "Serialization/Player", "PlayerApperence.json");
 
         private void Start() {
-            Dictionary<ApperenceFeature, int> dictionary = new Dictionary<ApperenceFeature, int>();
-            dictionary = Serializator.DeserializeData<Dictionary<ApperenceFeature, int>>(SavePath);
+            Dictionary<ApperenceFeature, int> dictionary = Serializator.DeserializeData<Dictionary<ApperenceFeature, int>>(SavePath);
+            dictionary ??=  dictionary = new Dictionary<ApperenceFeature, int>();
             _elementControllers = new List<PlayerApperenceElementController>();
             
             foreach (var featureSprite in _apperenceFeatureSpritesStorage.ApperenceFeatureSpriteses) {
@@ -32,16 +32,19 @@ namespace PlayerCreator {
             }
         }
 
-        private void OnDestroy() {
+        public void SavePlayerApperenceChanges() {
             Dictionary<ApperenceFeature, int> dictionary = new Dictionary<ApperenceFeature, int>();
-            
+            foreach (var apperenceElementController in _elementControllers) {
+                dictionary.Add(apperenceElementController.ApperenceFeature, apperenceElementController.Index);
+            }
+            Serializator.SerializeData(dictionary, SavePath);
+        }
+        
+        private void OnDestroy() {
             foreach (var apperenceElementController in _elementControllers) {
                 apperenceElementController.Dispose();
                 apperenceElementController.OnChangeApperenceElement -= OnChangeApperenceElementHandler;
-                dictionary.Add(apperenceElementController.ApperenceFeature, apperenceElementController.Index);
             }
-            
-            Serializator.SerializeData(dictionary, SavePath);
         }
 
         private void OnChangeApperenceElementHandler(ApperenceFeature _apperence, Sprite _sprite) {

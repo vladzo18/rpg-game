@@ -60,3 +60,24 @@ MonoBehaviour:
       _skillName: Rapid Strike
       _skillDescription: This is Rapid Strike
       _skillSprite: {fileID: 21300000, guid: 03e6f50b7a998ed46a4c3f9f8cb0855e, type: 3}
+  - _specializationType: 3
+    _specializationName: Mage
+    _specializationIcon: {fileID: 21300000, guid: c0c621637e6ca054cb6f00c56255ade7, type: 3}
+    _specializationDescription: Mage is one of the three playable classes in the
+      Dragon Age series (the other two being Warrior and Rogue). Mages are powerful
+      combatants who can employ a variety of different spells, ranging from manipulation
+      of the natural elements to mental control and physical healing.
+    _startStats:
+    - _statType: 3
+      _amount: 1
+    - _statType: 2
+      _amount: 2
+    _startSkills:
+    - _skillType: 5
+      _skillName: Rapid Strike
+      _skillDescription: This is Rapid Strike
+      _skillSprite: {fileID: 21300000, guid: 03e6f50b7a998ed46a4c3f9f8cb0855e, type: 3}
+    - _skillType: 2
+      _skillName: Shield Block
+      _skillDescription: This is Shield Block
+      _skillSprite: {fileID: 21300000, guid: 63b30c77b2de31d4398b65d935f4713c, type: 3}

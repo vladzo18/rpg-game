@@ -21,9 +21,9 @@ namespace PlayerCreator.Specialization {
             _skillViews = new List<SkillView>();
             _statViews = new List<StatView>();
             _objectPool = ObjectPool.Instance;
-            changeSpecialization();
             _specializationView.LeftArrow.onClick.AddListener(previousSpecialization);
             _specializationView.RightArrow.onClick.AddListener(nextSpecialization);
+            changeSpecialization();
         }
 
         private void nextSpecialization() {
