@@ -2882,11 +2882,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1787795894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 753790b7cb964266b185ac482ddedad8, type: 3}
+  m_Script: {fileID: 11500000, guid: 68cb4a6ee9fc467a9cec19f69c65f533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerView: {fileID: 2131519355}
-  _apperenceWindowHeader: Apperence
+  _apperenceWindowHeader: Appearance
   _specializationHeader: Specialization
   _characteristicsHeader: Characteristics
 --- !u!114 &1787795900

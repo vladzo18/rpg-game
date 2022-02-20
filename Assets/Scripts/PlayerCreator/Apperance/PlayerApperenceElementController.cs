@@ -22,11 +22,9 @@ namespace PlayerCreator {
         public event Action<ApperenceFeature, Sprite> OnChangeApperenceElement;
 
         public PlayerApperenceElementController(PlayerApperanceElementView view, ApperenceFeatureSprites sprites) {
-            _index = 1;
             _playerApperanceElementView = view;
             _apperenceFeatureSprites = sprites;
             _playerApperanceElementView.ElementHeader.text = sprites.ApperenceFeature.ToString();
-
             _playerApperanceElementView.RightArrow.onClick.AddListener(nextElement);
             _playerApperanceElementView.LeftArrow.onClick.AddListener(previousElement);
         }

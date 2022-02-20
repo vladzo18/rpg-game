@@ -34,7 +34,7 @@ namespace PlayerCreator.Stats {
         }
         
         private void RefreshStats(int index) {
-            if (_statsViews.Count != 0) ClearStatsViews();
+            if (_statsViews.Count > 0) ClearStatsViews();
             
             List<Stat> startStats = new List<Stat>();
             foreach (var stat in _specializationConfigsStorage.GetStartStats(index)) {
