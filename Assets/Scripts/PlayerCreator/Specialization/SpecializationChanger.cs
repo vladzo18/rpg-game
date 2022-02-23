@@ -1,29 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using CoreUI;
 using ObjectPooling;
 using UnityEngine;
 
 namespace PlayerCreator.Specialization {
     
-    public class SpecializationChanger : MonoBehaviour {
+    public class SpecializationChanger : IViewController {
 
-        [SerializeField] private PlayerSpecializationView _specializationView;
-        [SerializeField] private SpecializationConfigsStorage _specializationConfigsStorage;
+        private readonly PlayerSpecializationView _specializationView;
+        private readonly SpecializationConfigsStorage _specializationConfigsStorage;
         
-        private int _currentIndex = 0;
+        private int _currentIndex;
         private List<SkillView> _skillViews;
         private List<StatView> _statViews;
         private ObjectPool _objectPool;
+        private SpecializationModel _specializationModel;
 
         public event Action<int> OnSpecializationChange;
 
-        private void Start() {
+        public SpecializationChanger(PlayerSpecializationView specializationView, SpecializationConfigsStorage specializationConfigsStorage) {
+            _specializationView = specializationView;
+            _specializationConfigsStorage = specializationConfigsStorage;
             _skillViews = new List<SkillView>();
             _statViews = new List<StatView>();
             _objectPool = ObjectPool.Instance;
+        }
+        
+        public void Initialize(params object[] args) {
+            if (args == null || args.Length < 1 || !args.Any(arg => arg is SpecializationModel)) {
+                throw new NullReferenceException($"There is no args for {nameof(SpecializationChanger)}");
+            }
+
+            object model = args.First(arg => arg is SpecializationModel);
+            _specializationModel = model as SpecializationModel;
+            
             _specializationView.LeftArrow.onClick.AddListener(previousSpecialization);
             _specializationView.RightArrow.onClick.AddListener(nextSpecialization);
-            changeSpecialization();
+            _specializationView.Show();
+            ChangeSpecialization();
+        }
+
+        public void Complete() {
+            ClearView();
+            _specializationView.LeftArrow.onClick.RemoveListener(previousSpecialization);
+            _specializationView.RightArrow.onClick.RemoveListener(nextSpecialization);
+            _specializationView.Hide();
         }
 
         private void nextSpecialization() {
@@ -31,7 +54,7 @@ namespace PlayerCreator.Specialization {
             if (_currentIndex > _specializationConfigsStorage.SpecializationConfigs.Count - 1) {
                 _currentIndex = 0;
             }
-            changeSpecialization();
+            ChangeSpecialization();
         }
 
         private void previousSpecialization() {
@@ -39,23 +62,17 @@ namespace PlayerCreator.Specialization {
             if (_currentIndex < 0) {
                 _currentIndex = _specializationConfigsStorage.SpecializationConfigs.Count - 1;
             }
-            changeSpecialization();
+            ChangeSpecialization();
         }
         
-        private void changeSpecialization() {
-            foreach (var skillView in _skillViews) {
-               skillView.ReturnToPool();
-            }
-            foreach (var statView in _statViews) {
-               statView.ReturnToPool();
-            }
-            _skillViews.Clear();
-            _statViews.Clear();
+        private void ChangeSpecialization() {
+            ClearView();
             
             SpecializationConfig config = _specializationConfigsStorage.SpecializationConfigs[_currentIndex];
             _specializationView.SpecializationIcon.sprite = config.SpecializationIcon;
             _specializationView.SpetializationName.text = config.SpecializationName;
             _specializationView.Description.text = config.SpecializationDescription;
+            _specializationModel.ChangeSpecialization(config.SpecializationType, config.StartStats);
 
             foreach (var stat in config.StartStats) {
                 StatView statView = _objectPool.GetObject(_specializationView.StatView);
@@ -77,6 +94,17 @@ namespace PlayerCreator.Specialization {
             }
             
             OnSpecializationChange?.Invoke(_currentIndex);
+        }
+
+        private void ClearView() {
+            foreach (var skillView in _skillViews) {
+                skillView.ReturnToPool();
+            }
+            foreach (var statView in _statViews) {
+                statView.ReturnToPool();
+            }
+            _skillViews.Clear();
+            _statViews.Clear();
         }
         
     }

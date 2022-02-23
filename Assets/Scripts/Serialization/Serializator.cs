@@ -11,12 +11,10 @@ namespace Serialization {
         }
 
         public static T DeserializeData<T>(string savePath) {
-            string deserializeData = "{}";
-            try {
-                deserializeData = File.ReadAllText(savePath);
-            } catch {
-                SerializeData(null, savePath);
+            if (!File.Exists(savePath)) {
+                return default;
             }
+            string deserializeData = File.ReadAllText(savePath);;
             return JsonConvert.DeserializeObject<T>(deserializeData);
         }
         

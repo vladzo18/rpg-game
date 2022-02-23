@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlayerCreator {
+namespace PlayerCreator.Apperance {
     
     public class PlayerApperenceElementController {
 
-        private PlayerApperanceElementView _playerApperanceElementView;
-        private ApperenceFeatureSprites _apperenceFeatureSprites;
+        private readonly PlayerApperanceElementView _playerApperanceElementView;
+        private readonly ApperenceFeatureSprites _apperenceFeatureSprites;
         private int _index;
 
         public int Index {
@@ -19,12 +19,15 @@ namespace PlayerCreator {
         
         public ApperenceFeature ApperenceFeature => _apperenceFeatureSprites.ApperenceFeature;
 
-        public event Action<ApperenceFeature, Sprite> OnChangeApperenceElement;
+        public event Action<ApperenceFeature, Sprite, int> OnChangeApperenceElement;
 
         public PlayerApperenceElementController(PlayerApperanceElementView view, ApperenceFeatureSprites sprites) {
             _playerApperanceElementView = view;
             _apperenceFeatureSprites = sprites;
-            _playerApperanceElementView.ElementHeader.text = sprites.ApperenceFeature.ToString();
+        }
+
+        public void Initialize() {
+            _playerApperanceElementView.ElementHeader.text = _apperenceFeatureSprites.ApperenceFeature.ToString();
             _playerApperanceElementView.RightArrow.onClick.AddListener(nextElement);
             _playerApperanceElementView.LeftArrow.onClick.AddListener(previousElement);
         }
@@ -47,7 +50,7 @@ namespace PlayerCreator {
 
         private void changeApperenceElement() {
             _playerApperanceElementView.StyleHeader.text = $"{_index}";
-            OnChangeApperenceElement?.Invoke(_apperenceFeatureSprites.ApperenceFeature, _apperenceFeatureSprites.Sprites[_index]);
+            OnChangeApperenceElement?.Invoke(_apperenceFeatureSprites.ApperenceFeature, _apperenceFeatureSprites.Sprites[_index], _index);
         }
         
         public void Dispose() {

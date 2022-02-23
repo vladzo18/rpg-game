@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PlayerCreator {
+namespace PlayerCreator.Apperance {
     
     [Serializable]
     public struct Ears {

@@ -22,9 +22,9 @@ MonoBehaviour:
       In video games, a warrior often has a lot of health but have a small range.
     _startStats:
     - _statType: 1
-      _amount: 3
-    - _statType: 2
       _amount: 1
+    - _statType: 2
+      _amount: 3
     _startSkills:
     - _skillType: 1
       _skillName: Bash
@@ -42,11 +42,11 @@ MonoBehaviour:
       surviving player.
     _startStats:
     - _statType: 1
-      _amount: 1
+      _amount: 3
     - _statType: 2
       _amount: 3
     - _statType: 3
-      _amount: 2
+      _amount: 5
     _startSkills:
     - _skillType: 3
       _skillName: Shadow Strike
@@ -71,7 +71,7 @@ MonoBehaviour:
     - _statType: 3
       _amount: 1
     - _statType: 2
-      _amount: 2
+      _amount: 3
     _startSkills:
     - _skillType: 5
       _skillName: Rapid Strike

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PlayerCreator {
+namespace PlayerCreator.Apperance {
     
     public class PlayerApperence : MonoBehaviour {
 

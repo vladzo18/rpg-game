@@ -8,11 +8,15 @@ namespace PlayerCreator.Stats {
 
         [SerializeField] private Image _image;
         [SerializeField] private Button _button;
+
+        private bool _isInitialized;
         
         public event Action<StatButton> OnClicked;
 
         public void Initialize() {
+            if (_isInitialized) return;
             _button.onClick.AddListener(ButtonClicked);
+            _isInitialized = true;
         }
 
         public void SetState(bool active) {
@@ -22,17 +26,13 @@ namespace PlayerCreator.Stats {
                 _image.color = Color.white;
             }
         }
-
-        public void Dispose() {
-            _button.onClick.RemoveListener(ButtonClicked);
-        }
-        
-        private void OnDestroy() {
-            Dispose();
-        }
         
         private void ButtonClicked() {
             OnClicked?.Invoke(this);
+        }
+        
+        private void OnDestroy() {
+            _button.onClick.RemoveListener(ButtonClicked);
         }
         
     }

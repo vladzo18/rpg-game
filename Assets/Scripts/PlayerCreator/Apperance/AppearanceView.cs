@@ -1,9 +1,9 @@
-using PlayerCreator.PlayerView;
+using CoreUI;
 using UnityEngine;
 
-namespace PlayerCreator {
+namespace PlayerCreator.Apperance {
     
-    public class PlayerApperenceView : MonoBehaviour, IWindow {
+    public class AppearanceView : BaseView {
 
         [SerializeField] private PlayerApperanceElementView _playerApperanceElementView;
         [SerializeField] private Transform _elementsGrid;
@@ -11,9 +11,6 @@ namespace PlayerCreator {
         public PlayerApperanceElementView PlayerApperanceElementView => _playerApperanceElementView;
         public Transform ElementsGrid => _elementsGrid;
         
-        public void Show() => this.gameObject.SetActive(true);
-        public void Hide() => this.gameObject.SetActive(false);
-
     }
     
 }
